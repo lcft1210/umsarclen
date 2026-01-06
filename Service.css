@@ -1,0 +1,280 @@
+:root {
+  --bg-gradient: linear-gradient(to right, #0f172a, #581c87, #0f172a);
+  --header-gradient: linear-gradient(to right, #6b21a8, #06b6d4);
+  --card-gradient: linear-gradient(to right, rgba(107,91,149,0.25), rgba(0,255,255,0.25));
+  --text-main: #ffffff;
+  --text-sub: #a5b4fc;
+  --border-glass: rgba(255,255,255,0.2);
+}
+
+/* ================= BASE ================= */
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: var(--bg-gradient);
+  color: white;
+  overflow-x: hidden;
+  transition: background 0.6s ease;
+}
+
+#header {
+  transition: background 0.6s ease;
+}
+
+/* ================= UTILITIES ================= */
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ================= BACKGROUND FX ================= */
+
+.pulse-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* ================= HEADER BUTTONS ================= */
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.header-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+/* ================= LANGUAGE SWITCHER ================= */
+
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  right: 70px;
+  display: flex;
+  gap: 8px;
+  z-index: 1002;
+}
+
+.lang-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+  min-width: 40px;
+}
+
+.lang-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.lang-btn.active {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ================= THEME SWITCHER ================= */
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+#themeMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  z-index: 1002;
+}
+
+/* ================= ANIMATIONS ================= */
+
+.fade-down { animation: fadeDown .8s ease forwards; }
+.fade-in { opacity: 0; animation: fadeIn .8s ease forwards; }
+.fade-up { animation: fadeUp .8s ease forwards; }
+.zoom-in { animation: zoomIn .8s ease forwards; }
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= SERVICE BUTTONS ================= */
+
+.service-btn {
+  padding: 10px 24px;
+  background: linear-gradient(90deg, #0891b2, #14b8a6);
+  border-radius: 9999px;
+  border: 2px solid #22d3ee;
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+  transition: all .4s ease;
+  box-shadow: 0 0 20px rgba(34,211,238,.4);
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.service-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 35px rgba(34,211,238,.7);
+}
+
+.service-btn.large {
+  padding: 14px 36px;
+  font-size: 1rem;
+}
+
+/* ================= SERVICE LAYOUT ================= */
+
+#leftServices,
+#rightServices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+#leftServices .service-btn,
+#rightServices .service-btn {
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+/* ================= CENTER IMAGE ================= */
+
+.flex.justify-center > .relative img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.flex.justify-center > .relative img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 40px rgba(20,184,166,.5);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .grid-cols-1.lg\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  #leftServices .service-btn,
+  #rightServices .service-btn {
+    flex: 1 1 45%;
+  }
+}
+
+/* ===== MOBILE HEADER FIX (KEY PART) ===== */
+
+@media (max-width: 768px) {
+
+  #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+  }
+
+  #backBtn {
+    position: static !important;
+    align-self: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .language-switcher,
+  .theme-switcher {
+    position: static !important;
+    margin-bottom: 10px;
+  }
+
+  #themeMenu {
+    right: 0;
+    top: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  #leftServices .service-btn,
+  #rightServices .service-btn {
+    flex: 1 1 100%;
+    font-size: 0.85rem;
+    padding: 8px 20px;
+  }
+
+  .service-btn.large {
+    font-size: 0.95rem;
+    padding: 12px 28px;
+  }
+
+  .flex.justify-center > .relative img {
+    max-width: 300px;
+  }
+}
+
+/* Gradient text animation */
+@keyframes bgMove {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Sparkle rotate animation */
+@keyframes sparkleRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Rotating border */
+@keyframes rotate360 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

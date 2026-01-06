@@ -1,0 +1,334 @@
+/* =========================
+   Global Styles
+========================= */
+body {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  background: var(--bg-gradient, linear-gradient(to bottom right, #0f172a, #6b21a8, #0f172a));
+  color: white;
+  min-height: 100vh;
+}
+
+/* =========================
+   Header
+========================= */
+.header {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center the title */
+  background: var(--header-gradient, linear-gradient(to bottom right, #0f172a, #6b21a8, #0f172a));
+  border-radius: 0 0 16px 16px;
+  padding: 0 24px;
+  z-index: 1000;
+}
+
+/* Title */
+.header-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  margin: 0;
+  pointer-events: none;
+  text-align: center;
+}
+
+/* =========================
+   Back Button
+========================= */
+.back-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1001;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================
+   Header Right Controls (Language + Theme)
+========================= */
+.header-right {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between language & theme */
+  z-index: 1001;
+}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.lang-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  position: relative; /* menu will appear relative to button */
+}
+
+#toggleBtn {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Theme Menu Dropdown */
+#themeMenu {
+  position: absolute;
+  top: 100%; /* directly below toggle button */
+  right: 0;
+  margin-top: 6px;
+  background: rgba(30, 41, 59, 0.95);
+  border-radius: 8px;
+  padding: 6px;
+  width: 180px;
+  z-index: 1006;
+}
+
+.menu.hidden {
+  display: none;
+}
+
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Color dots for themes */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.cyan { background: cyan; }
+.purple { background: purple; }
+.teal { background: teal; }
+.green { background: green; }
+.orange { background: orange; }
+.red { background: red; }
+.violet { background: violet; }
+.pink { background: pink; }
+
+/* =========================
+   Content
+========================= */
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 16px;
+}
+
+.intro {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.sub-text {
+  font-size: 1.25rem;
+  color: #d8b4fe;
+}
+
+.contact-text {
+  font-size: 1rem;
+  color: #67e8f9;
+  margin-top: 8px;
+}
+
+/* =========================
+   FAQ List
+========================= */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: linear-gradient(
+    to right,
+    rgba(139, 92, 246, 0.2),
+    rgba(6, 182, 212, 0.2)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  text-align: left;
+  font-size: 1.125rem;
+}
+
+.faq-item button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-header i {
+  font-size: 1.25rem;
+  color: #22d3ee;
+  background: rgba(6, 182, 212, 0.2);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.faq-content {
+  padding: 16px 32px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: pre-wrap;
+  font-family: sans-serif;
+  color: white;
+}
+
+/* =========================
+   Help Box
+========================= */
+.help-box {
+  margin-top: 48px;
+  background: rgba(133, 28, 105, 0.3);
+  border: 1px solid rgba(253, 224, 71, 0.3);
+  border-radius: 16px;
+  padding: 24px 32px;
+}
+
+.help-box h3 {
+  color: #facc15;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.help-box p {
+  color: #fef3c7;
+  margin-bottom: 16px;
+}
+
+.help-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.help-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.email-btn {
+  background: #06b6d4;
+}
+
+.email-btn:hover {
+  background: #0ea5e9;
+}
+
+.call-btn {
+  background: #8b5cf6;
+}
+
+.call-btn:hover {
+  background: #7c3aed;
+}
+
+/* =========================
+   Theme Variables (default)
+========================= */
+body.blue-purple {
+  --bg-gradient: linear-gradient(to bottom right, #0f172a, #581c87, #0f172a);
+  --header-gradient: linear-gradient(to bottom right, #0f172a, #581c87, #0f172a);
+}
+
+body.green-teal {
+  --bg-gradient: linear-gradient(to bottom right, #022c22, #115e59, #022c22);
+  --header-gradient: linear-gradient(to bottom right, #022c22, #115e59, #022c22);
+}
+
+body.orange-red {
+  --bg-gradient: linear-gradient(to bottom right, #0f172a, #9a3412, #0f172a);
+  --header-gradient: linear-gradient(to bottom right, #0f172a, #9a3412, #0f172a);
+}
+
+body.pink-violet {
+  --bg-gradient: linear-gradient(to bottom right, #0f172a, #db2777, #0f172a);
+  --header-gradient: linear-gradient(to bottom right, #0f172a, #db2777, #0f172a);
+}

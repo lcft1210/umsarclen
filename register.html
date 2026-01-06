@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Register | UMS Arclen</title>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide/dist/lucide.min.js"></script>
+
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <button id="closeBtn" class="close-btn">
+      <i class="fas fa-xmark"></i>
+    </button>
+
+    <h3>Create an account</h3>
+    <p class="subtitle">Use your BI/BG student ID to register.</p>
+
+    <div id="error" class="error hidden"></div>
+
+    <form id="registerForm">
+      <input id="fullName" placeholder="Full name" class="input col-span-2" required />
+      <input id="studentId" placeholder="Student ID (BI... / BG...)" class="input" required />
+      <input id="phone" placeholder="Phone number" class="input" required />
+      <input id="email" type="email" placeholder="Email" class="input" required />
+      <input id="password" type="password" placeholder="Password" class="input" required />
+      <input id="confirm" type="password" placeholder="Confirm password" class="input" required />
+      <button type="submit" class="register-btn col-span-2">Register</button>
+    </form>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+<script src="register.js"></script>
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

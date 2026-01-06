@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Counseling Appointment</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="counseling.css">
+  <link rel="stylesheet" href="theme-switcher.css">
+</head>
+<body class="bg-main-gradient">
+
+<div class="container">
+
+  <header class="header bg-header-gradient">
+    <!-- Back Button -->
+    <button class="back-btn" id="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back
+    </button>
+
+    <!-- Centered Title -->
+    <h1 class="title-accent center-title" data-translate="serviceDetail.counseling.title">
+      Counseling Appointment
+    </h1>
+
+    <!-- Right Controls: Language + Theme -->
+    <div class="header-right">
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ms">BM</button>
+      </div>
+
+      <!-- Theme Switcher -->
+      <div class="theme-switcher">
+        <button id="toggleBtn">🎨</button>
+      </div>
+
+      <div id="themeMenu" class="menu hidden">
+        <button data-theme="blue-purple">
+          <span class="dot cyan"></span><span class="dot purple"></span>Blue Purple
+        </button>
+        <button data-theme="green-teal">
+          <span class="dot teal"></span><span class="dot green"></span>Green Teal
+        </button>
+        <button data-theme="orange-red">
+          <span class="dot orange"></span><span class="dot red"></span>Orange Red
+        </button>
+        <button data-theme="pink-violet">
+          <span class="dot violet"></span><span class="dot pink"></span>Pink Violet
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FORM SECTION -->
+  <main id="formSection">
+    <form id="appointmentForm" class="card">
+
+      <div class="form-title">
+        <i class="fa-solid fa-calendar-days text-accent"></i>
+        <h2 data-translate="serviceDetail.counseling.bookTitle">Book Your Counseling Session</h2>
+      </div>
+
+      <label for="Name" data-translate="register.fullName">Full Name</label>
+      <input type="text" id="Name" name="name" required placeholder="Enter your full name">
+
+      <label for="studentId" data-translate="login.studentId">Student ID</label>
+      <input type="text" id="studentId" name="studentId" required placeholder="BI21110234">
+
+      <label for="email" data-translate="register.email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="student@ums.edu.my">
+
+      <label for="contact" data-translate="register.phone">Contact Number</label>
+      <input type="tel" id="contact" name="contact" required placeholder="+60 12-345 6789">
+
+      <label for="issue" data-translate="counseling.issueType">Type of Issue</label>
+      <select id="issue" name="issue" required>
+        <option value="" data-translate="counseling.selectIssue">Select an issue</option>
+        <option value="academic" data-translate="counseling.issues.academic">Academic Stress</option>
+        <option value="personal" data-translate="counseling.issues.personal">Personal Issues</option>
+        <option value="relationship" data-translate="counseling.issues.relationship">Relationship Problems</option>
+        <option value="anxiety" data-translate="counseling.issues.anxiety">Anxiety & Depression</option>
+        <option value="career" data-translate="counseling.issues.career">Career Guidance</option>
+        <option value="family" data-translate="counseling.issues.family">Family Issues</option>
+        <option value="others" data-translate="counseling.issues.others">Others</option>
+      </select>
+
+      <label for="branch" data-translate="counseling.branch">Branch</label>
+      <select id="branch" name="branch" required>
+        <option value="" data-translate="counseling.selectBranch">Select a branch</option>
+        <option value="kk" data-translate="counseling.branches.kk">UMS Kota Kinabalu</option>
+        <option value="labuan" data-translate="counseling.branches.labuan">UMS Labuan International Campus</option>
+        <option value="sandakan" data-translate="counseling.branches.sandakan">UMS Sandakan Branch Campus</option>
+      </select>
+
+      <div class="grid">
+        <div>
+          <label for="date" data-translate="counseling.date">Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div>
+          <label for="time" data-translate="counseling.time">Time</label>
+          <input type="time" id="time" name="time" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-gradient" data-translate="common.submit">
+        Submit Appointment
+      </button>
+    </form>
+  </main>
+
+  <!-- SUCCESS SECTION -->
+  <main id="successSection" class="hidden">
+    <div class="card success-card">
+
+      <div class="check-circle">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <h2 data-translate="counseling.confirmation">Appointment Confirmed!</h2>
+
+      <div class="details" id="details"></div>
+
+      <div class="notice-box" id="noticeBox"></div>
+
+      <button class="btn-gradient" id="backToService" data-translate="serviceDetail.backToServices">
+        Back to Services
+      </button>
+    </div>
+  </main>
+
+</div>
+
+<script src="counseling.js"></script>
+<script src="language-manager.js"></script>
+<script src="theme-switcher.js"></script>
+<script>
+  // Update select options on language change
+  function updateSelectOptions() {
+    const issueSelect = document.getElementById('issue');
+    const branchSelect = document.getElementById('branch');
+
+    [issueSelect, branchSelect].forEach(select => {
+      if (!select) return;
+      select.querySelectorAll('option[data-translate]').forEach(option => {
+        const key = option.getAttribute('data-translate');
+        const translation = window.languageManager?.t(key);
+        if (translation && translation !== key) option.textContent = translation;
+      });
+    });
+  }
+
+  document.addEventListener('languageChanged', () => updateSelectOptions());
+  document.addEventListener('DOMContentLoaded', () => setTimeout(updateSelectOptions, 100));
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IT Support</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="it-support.css">
+  <link rel="stylesheet" href="theme-switcher.css">
+</head>
+<body class="min-h-screen text-white absolute-header">
+
+<div class="page">
+
+  <header class="header">
+  <!-- Back Button -->
+  <button id="back-btn" class="back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span data-translate="common.back">Back</span>
+  </button>
+
+  <!-- Title -->
+  <h1 class="header-title" data-translate="serviceDetail.itSupport.title">
+    IT Support
+  </h1>
+
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ms">BM</button>
+  </div>
+
+  <div class="theme-switcher">
+         <button id="toggleBtn" >🎨</button>
+      </div>
+    
+     <div id="themeMenu" class="menu hidden">
+      <button data-theme="blue-purple">
+        <span class="dot cyan"></span>
+        <span class="dot purple"></span>
+        Blue Purple
+      </button>
+
+      <button data-theme="green-teal">
+        <span class="dot teal"></span>
+        <span class="dot green"></span>
+        Green Teal
+      </button>
+
+      <button data-theme="orange-red">
+        <span class="dot orange"></span>
+        <span class="dot red"></span>
+        Orange Red
+      </button>
+
+      <button data-theme="pink-violet">
+        <span class="dot violet"></span>
+        <span class="dot pink"></span>
+        Pink Violet
+      </button>
+    </div>
+</header>
+
+
+  <!-- Main content -->
+  <main class="content">
+    <div class="intro text-center">
+      <p class="sub-text" data-translate="servicePage.descriptions.itSupport">Find solutions to common IT problems</p>
+      <p class="contact-text" data-translate="itSupport.contact">24/7 IT Help Desk: +60 88-329 000 | digital@ums.edu.my</p>
+    </div>
+
+    <!-- FAQ list -->
+    <div id="faq-list" class="faq-list"></div>
+
+    <!-- Still need help -->
+    <div class="help-box">
+      <h3 data-translate="itSupport.help.title">Still Need Help?</h3>
+      <p data-translate="itSupport.help.description">Visit our IT Help Desk or submit a support ticket online</p>
+      <div class="help-actions">
+        <a href="mailto:digital@ums.edu.my" class="help-btn email-btn" data-translate="itSupport.help.email">Email IT Support</a>
+        <a href="https://api.whatsapp.com/send/?phone=6088329000&text&type=phone_number&app_absent=0" 
+        class="help-btn call-btn"
+        data-translate="itSupport.help.call">
+        Call Help Desk
+      </a>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script src="it-support.js"></script>
+<script src="language-manager.js"></script>
+<script src="theme-switcher.js"></script>
+<script>
+  // Function to update FAQ content when language changes
+  function updateFAQContent() {
+    if (window.updateFAQItems && window.languageManager) {
+      window.updateFAQItems();
+    }
+  }
+  
+  // Listen for language changes
+  document.addEventListener('languageChanged', function(e) {
+    console.log('Language changed on IT Support page:', e.detail.language);
+    updateFAQContent();
+  });
+  
+  // Initialize when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(updateFAQContent, 100);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Service Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="Service.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="theme-switcher.css">
+</head>
+
+<body class="min-h-screen bg-slate-900 text-white">
+
+  <!-- Header -->
+  <div id="header" class="relative px-6 py-8 text-center">
+
+    <!-- Back Button -->
+    <button id="backBtn"
+      class="absolute top-4 left-4 flex items-center gap-2 px-3 py-2 bg-white/20 hover:bg-white/30 border border-white/40 rounded-lg text-sm z-50">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span data-translate="common.back">Back</span>
+    </button>
+
+    <!-- Language Switcher ✅ RESTORED -->
+    <div class="language-switcher absolute top-4 right-20 z-50">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ms">BM</button>
+    </div>
+
+    <!-- Theme Switcher -->
+    <div class="absolute top-4 right-4 z-50">
+      <button id="toggleBtn"
+        class="px-3 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm">
+        🎨
+      </button>
+
+      <div id="themeMenu"
+        class="menu hidden mt-2 flex flex-col gap-2 p-2 bg-white/10 rounded-lg backdrop-blur-md shadow-lg">
+        <button data-theme="blue-purple">
+          <span class="dot cyan"></span>
+          <span class="dot purple"></span>
+          Blue Purple
+        </button>
+        <button data-theme="green-teal">
+          <span class="dot teal"></span>
+          <span class="dot green"></span>
+          Green Teal
+        </button>
+        <button data-theme="orange-red">
+          <span class="dot orange"></span>
+          <span class="dot red"></span>
+          Orange Red
+        </button>
+        <button data-theme="pink-violet">
+          <span class="dot violet"></span>
+          <span class="dot pink"></span>
+          Pink Violet
+        </button>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-2"
+        style="font-family: Orbitron, sans-serif;"
+        data-translate="servicePage.title">
+      SERVICES
+    </h1>
+
+    <p class="text-lg sm:text-xl mb-1"
+       style="font-family: 'Exo 2', sans-serif;"
+       data-translate="servicePage.subtitle">
+      Welcome to UMS ARCLEN Service
+    </p>
+
+    <p class="text-base sm:text-lg text-white/80"
+       style="font-family: 'Exo 2', sans-serif;"
+       data-translate="servicePage.choose">
+      Choose the service you need
+    </p>
+  </div>
+
+  <!-- Services -->
+  <div class="px-4 py-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+
+        <div class="flex flex-wrap gap-4 justify-center" id="leftServices"></div>
+
+        <div class="flex justify-center">
+  <div class="relative w-72 sm:w-80 h-72 sm:h-80 md:w-96 md:h-96">
+
+    <!-- Glow Background -->
+    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 blur-3xl opacity-40 animate-pulse"></div>
+
+    <!-- Main Button -->
+    <button onclick="window.location.href='cv-generator.html'" 
+            class="relative w-full h-full rounded-full bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-2xl shadow-cyan-500/50 transition-transform duration-300 hover:scale-105">
+
+      <!-- Inner Circle -->
+      <div class="w-[90%] h-[90%] rounded-full bg-slate-900/90 backdrop-blur-sm flex flex-col items-center justify-center gap-3 border-4 border-white/20">
+
+        <!-- AI Text -->
+        <div class="text-6xl sm:text-8xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-[bgMove_5s_linear_infinite]"
+             style="font-family: 'Orbitron', sans-serif; background-size: 200% 100%;">
+          AI
+        </div>
+
+        <!-- Subtitle -->
+        <div class="text-center">
+          <p class="text-white text-lg sm:text-xl tracking-wide" style="font-family: 'Exo 2', sans-serif;">CV Generator</p>
+          <p class="text-cyan-300 text-sm mt-1">Powered by AI</p>
+        </div>
+
+        <!-- Sparkles -->
+        <div class="flex gap-2">
+          <div class="text-yellow-400 text-2xl animate-[sparkleRotate_2s_infinite]">✨</div>
+          <div class="text-yellow-400 text-2xl animate-[sparkleRotate_2s_infinite_0.5s]">✨</div>
+        </div>
+      </div>
+
+      <!-- Rotating Border -->
+      <div class="absolute inset-0 rounded-full border-4 border-transparent"
+           style="border-top-color: #06b6d4; border-right-color: #a855f7; animation: rotate360 4s linear infinite;"></div>
+    </button>
+  </div>
+</div>
+
+
+        <div class="flex flex-wrap gap-4 justify-center" id="rightServices"></div>
+      </div>
+
+      <div class="mt-12 flex justify-center">
+        <button class="service-btn large px-6 py-3 text-sm sm:text-base"
+          onclick="window.location.href='ServiceDetail.html?service=peer-to-peer'"
+          data-translate="servicePage.peerToPeer">
+          Peer-to-Peer Department Contact
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="language-manager.js"></script>
+  <script src="Service.js"></script>
+  <script src="theme-switcher.js"></script>
+</body>
+</html>

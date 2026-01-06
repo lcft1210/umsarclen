@@ -1,0 +1,407 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Indie Flower', cursive;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  background: #000;
+}
+
+/* Background */
+.bg-image {
+  position: fixed;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: -1;
+}
+
+/* ===== HEADER LAYOUT ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  align-items: center;
+  position: relative;
+}
+
+/* Header Right Container (Language Switcher + Add Notice) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ===== LANGUAGE SWITCHER STYLES ===== */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 2px;
+}
+
+.lang-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+  min-width: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== BUTTON STYLES ===== */
+/* Back Button */
+#backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#backBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Add Notice Button */
+#addBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#addBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Title */
+.title-container {
+  text-align: center;
+  padding: 40px 20px 20px;
+  position: relative;
+}
+#title {
+  font-family: 'Monoton', cursive;
+  font-size: clamp(2rem, 8vw, 6rem);
+  letter-spacing: 0.1em;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* Chalkboard lines effect on title */
+.title-lines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+/* Blackboard */
+.blackboard {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 8px solid #b58900;
+  border-radius: 16px;
+  padding: 40px;
+  min-height: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.3);
+}
+.blackboard-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  border-radius: 16px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.03) 2px,
+    rgba(255,255,255,0.03) 4px
+  );
+}
+
+/* No Notices Message */
+.no-notices {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* Notice Cards */
+.notice-card {
+  position: relative;
+  background: rgba(255,255,150,0.85); 
+  backdrop-filter: blur(2px);         /* subtle glassy effect */
+  padding: 20px;
+  border-left: 6px solid #d97706;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transform: rotate(calc(-1deg + 2deg * var(--rand)));
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.notice-card h3 {
+  font-family: 'Permanent Marker', cursive;
+  margin-bottom: 8px;
+  color: #222;
+}
+.notice-card p {
+  font-family: 'Indie Flower', cursive;
+  color: #333;
+}
+.notice-card .date {
+  font-size: 0.9rem;
+  color: #555;
+}
+.notice-card button.delete-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s;
+}
+.notice-card:hover button.delete-btn {
+  opacity: 1;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  z-index: 100;
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  position: relative;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 24px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.modal-content h2 {
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  margin-bottom: 16px;
+}
+.modal-content label {
+  display: block;
+  color: white;
+  margin-bottom: 6px;
+  font-family: 'Rajdhani', sans-serif;
+}
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  margin-bottom: 16px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.modal-content select option {
+  background: #1e293b;
+  color: white;
+}
+
+/* Modal Submit Button */
+.modal-content button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, #16a34a, #22c55e);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.modal-content button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(22, 163, 74, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+  
+  .header-right {
+    gap: 10px;
+  }
+  
+  .lang-btn {
+    padding: 5px 12px;
+    font-size: 12px;
+    min-width: 35px;
+  }
+  
+  #addBtn, #backBtn {
+    padding: 6px 15px;
+    font-size: 13px;
+  }
+  
+  #addBtn i, #backBtn i {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .title-container {
+    padding: 30px 15px 15px;
+  }
+  
+  .blackboard {
+    padding: 25px;
+    margin: 0 15px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 15px;
+  }
+  
+  .header-right {
+    gap: 8px;
+  }
+  
+  .lang-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+    min-width: 32px;
+  }
+  
+  /* Hide button text on very small screens */
+  #addBtn span, #backBtn span {
+    display: none;
+  }
+  
+  #addBtn, #backBtn {
+    padding: 6px 12px;
+    min-width: 40px;
+    justify-content: center;
+  }
+  
+  #addBtn i, #backBtn i {
+    margin: 0;
+  }
+  
+  .title-container {
+    padding: 20px 10px 10px;
+  }
+  
+  #title {
+    font-size: clamp(1.5rem, 6vw, 4rem);
+  }
+  
+  .blackboard {
+    padding: 20px;
+    margin: 0 10px 20px;
+  }
+}

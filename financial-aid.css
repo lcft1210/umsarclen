@@ -1,0 +1,330 @@
+/* =========================
+   Global Styles
+========================= */
+body {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  background: var(--bg-gradient, linear-gradient(to bottom right, #020617, #581c87, #020617));
+  color: white;
+  min-height: 100vh;
+}
+
+/* =========================
+   Header
+========================= */
+.header {
+  background: var(--header-gradient, linear-gradient(to right, rgba(88, 28, 135, 0.5), rgba(14, 165, 233, 0.4)));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 32px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Back Button */
+.back-btn {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Header Title (Centered) */
+.header-title {
+  justify-self: center;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Language Switcher */
+.language-switcher {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+/* Language Buttons */
+.lang-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  position: relative;
+}
+
+#toggleBtn {
+  padding: 8px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Theme Menu Dropdown */
+#themeMenu {
+  position: absolute;
+  top: 100%; /* below button */
+  right: 0;
+  margin-top: 6px;
+  background: rgba(30, 41, 59, 0.95);
+  border-radius: 8px;
+  padding: 6px;
+  width: 180px;
+  z-index: 1006;
+}
+
+.menu.hidden {
+  display: none;
+}
+
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Color dots for themes */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.cyan { background: cyan; }
+.purple { background: purple; }
+.teal { background: teal; }
+.green { background: green; }
+.orange { background: orange; }
+.red { background: red; }
+.violet { background: violet; }
+.pink { background: pink; }
+
+/* =========================
+   Main Content
+========================= */
+.content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 48px 24px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.intro-main {
+  font-size: 1.3rem;
+  color: #d8b4fe;
+}
+
+.intro-sub {
+  margin-top: 8px;
+  color: #67e8f9;
+}
+
+/* =========================
+   Sections
+========================= */
+.section {
+  margin-bottom: 64px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-header i {
+  font-size: 28px;
+  color: #22d3ee;
+  background: rgba(6, 182, 212, 0.2);
+  padding: 14px;
+  border-radius: 12px;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #a5f3fc;
+  margin-bottom: 16px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.card a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+/* =========================
+   Apply Box
+========================= */
+.apply-box {
+  margin-top: 64px;
+  background: rgba(6, 182, 212, 0.25);
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  padding: 32px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.apply-box h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.apply-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn-cyan {
+  background: #06b6d4;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-purple {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cyan:hover {
+  background: #0ea5e9;
+}
+
+.btn-purple:hover {
+  background: #6d28d9;
+}
+
+/* =========================
+   Theme Variables (Default)
+========================= */
+body.blue-purple {
+  --bg-gradient: linear-gradient(to bottom right, #020617, #581c87, #020617);
+  --header-gradient: linear-gradient(to right, rgba(88, 28, 135, 0.5), rgba(14, 165, 233, 0.4));
+}
+
+body.green-teal {
+  --bg-gradient: linear-gradient(to bottom right, #001f1f, #115e59, #001f1f);
+  --header-gradient: linear-gradient(to right, rgba(0, 31, 31, 0.5), rgba(17, 94, 89, 0.4));
+}
+
+body.orange-red {
+  --bg-gradient: linear-gradient(to bottom right, #020617, #9a3412, #020617);
+  --header-gradient: linear-gradient(to right, rgba(2, 6, 23, 0.5), rgba(154, 52, 18, 0.4));
+}
+
+body.pink-violet {
+  --bg-gradient: linear-gradient(to bottom right, #020617, #db2777, #020617);
+  --header-gradient: linear-gradient(to right, rgba(2, 6, 23, 0.5), rgba(219, 39, 119, 0.4));
+}

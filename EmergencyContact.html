@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Emergency</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome CDNJS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Orbitron font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="EmergencyContact.css">
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-red-950 via-orange-950 to-red-950 text-white">
+
+  <!-- Animated background -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="bg-circle bg-circle-1"></div>
+    <div class="bg-circle bg-circle-2"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="relative z-10 bg-gradient-to-r from-red-900/50 to-orange-900/50 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-12 sm:py-16 min-h-[240px] sm:min-h-[200px]">
+
+    <!-- Back Button -->
+    <button id="backBtn"
+      class="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg transition-all">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span data-translate="common.back">Back</span>
+    </button>
+
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ms">BM</button>
+    </div>
+
+    <!-- Title -->
+    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 pt-16 sm:pt-0 text-center">
+      <div class="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+        <i class="fa-solid fa-triangle-exclamation text-red-400 animate-pulse text-xl sm:text-2xl"></i>
+
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wider"
+            style="font-family: Orbitron, sans-serif;"
+            data-translate="emergency.title">
+          Emergency Contacts
+        </h1>
+
+        <i class="fa-solid fa-triangle-exclamation text-red-400 animate-pulse text-xl sm:text-2xl"></i>
+      </div>
+
+      <p class="text-sm sm:text-lg md:text-xl text-white/90 leading-relaxed"
+         data-translate="emergency.description">
+        Reach out to the appropriate emergency service immediately if needed.
+      </p>
+
+      <p class="text-red-300 mt-3 sm:mt-4 text-xs sm:text-sm md:text-base">
+        <strong data-translate="emergency.hotline">
+          Emergency Hotlines: 999 (Police/Ambulance) | 994 (Fire)
+        </strong>
+      </p>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-12">
+    <div id="emergencyGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+
+    <!-- Important notice -->
+    <div class="mt-12 bg-yellow-900/30 border-2 border-yellow-500/50 rounded-2xl p-6 backdrop-blur-md fade-up delay-8">
+      <div class="flex items-start gap-4">
+        <i class="fa-solid fa-triangle-exclamation text-yellow-400 mt-1"></i>
+        <div>
+          <h3 class="text-yellow-300 text-xl mb-2" data-translate="emergency.importantReminders">
+            Important Reminders:
+          </h3>
+          <ul class="text-yellow-100 space-y-2">
+            <li data-translate="emergency.reminder1">• In case of life-threatening emergency, call 999 immediately</li>
+            <li data-translate="emergency.reminder2">• For campus emergencies after hours, contact Campus Security</li>
+            <li data-translate="emergency.reminder3">• Keep these numbers saved in your phone</li>
+            <li data-translate="emergency.reminder4">• Stay calm and provide clear information</li>
+            <li data-translate="emergency.reminder5">• Know your exact location</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="EmergencyContact.js"></script>
+  <script src="language-manager.js"></script>
+
+  <script>
+    document.addEventListener('languageChanged', function() {
+      if (window.updateEmergencyContactContent) {
+        window.updateEmergencyContactContent();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        if (window.updateEmergencyContactContent) {
+          window.updateEmergencyContactContent();
+        }
+      }, 100);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMS ARCLEN</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP for animations -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Background -->
+  <div class="bg-image"></div>
+  <div class="bg-overlay"></div>
+  <div class="particles"></div>
+
+  <!-- Header -->
+  <header>
+    <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=150&q=80" alt="UMSKAL Logo">
+
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ms">BM</button>
+    </div>
+
+    <div class="header-right">
+      <button id="loginBtn" data-translate="common.login">Login</button>
+      <button id="profileName"></button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1 id="title">UMS ARCLEN</h1>
+    <p class="subtitle" data-translate="mainPage.subtitle">YOUR ALL-IN-ONE STUDENT SERVICES HUB</p>
+
+    <!-- Merged Cards -->
+    <div class="cards-wrapper">
+      <a href="NoticeBoard.html" class="card">
+        <i class="fa-solid fa-bullhorn card-icon"></i>
+        <span data-translate="mainPage.services.noticeBoard">Notice Board</span>
+      </a>
+
+      <a href="https://itel.ums.edu.my/" target="_blank" class="card">
+        <i class="fa-solid fa-laptop-code card-icon"></i>
+        <span data-translate="mainPage.services.itel">ITEL</span>
+      </a>
+
+      <a href="https://smp.ums.edu.my/" target="_blank" class="card">
+        <i class="fa-solid fa-file-lines card-icon"></i>
+        <span data-translate="mainPage.services.smpb">SMPB</span>
+      </a>
+
+      <a href="Service.html" class="card">
+        <i class="fa-solid fa-gear card-icon"></i>
+        <span data-translate="mainPage.services.service">Service</span>
+      </a>
+
+      <a href="Organisation.html" class="card">
+        <i class="fa-solid fa-building card-icon"></i>
+        <span data-translate="mainPage.services.organisation">Organisation</span>
+      </a>
+
+      <a href="EmergencyContact.html" class="card">
+        <i class="fa-solid fa-phone-volume card-icon"></i>
+        <span data-translate="mainPage.services.emergency">Emergency Contact</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script src="index.js"></script>
+  <script src="auth.js"></script>
+  <script src="language-manager.js"></script>
+</body>
+</html>

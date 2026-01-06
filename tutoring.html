@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutoring Appointment</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="tutoring.css">
+  <link rel="stylesheet" href="theme-switcher.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-inner">
+        <button class="back-btn" id="backBtn">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <h1 class="header-title" data-translate="serviceDetail.tutoring.title">Tutoring Appointment</h1>
+        <div class="language-switcher">
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ms">BM</button>
+        </div>
+
+        <!-- Theme Switcher -->
+      <div class="theme-switcher">
+        <button id="toggleBtn">🎨</button>
+      </div>
+
+      <div id="themeMenu" class="menu hidden">
+        <button data-theme="blue-purple">
+          <span class="dot cyan"></span><span class="dot purple"></span>Blue Purple
+        </button>
+        <button data-theme="green-teal">
+          <span class="dot teal"></span><span class="dot green"></span>Green Teal
+        </button>
+        <button data-theme="orange-red">
+          <span class="dot orange"></span><span class="dot red"></span>Orange Red
+        </button>
+        <button data-theme="pink-violet">
+          <span class="dot violet"></span><span class="dot pink"></span>Pink Violet
+        </button>
+      </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="content">
+
+      <!-- Appointment Form -->
+      <form id="appointmentForm" class="form-card">
+        <div class="form-header">
+          <i class="fa-solid fa-book-open"></i>
+          <h2 data-translate="serviceDetail.tutoring.form.title">Book Your Study Session</h2>
+        </div>
+
+        <div class="form-group">
+          <label data-translate="register.fullName">Full Name</label>
+          <input type="text" id="name" required placeholder="Your full name" data-translate="register.fullNamePlaceholder">
+        </div>
+
+        <div class="form-group">
+          <label data-translate="login.studentId">Student ID</label>
+          <input type="text" id="studentId" required placeholder="e.g., UMS123456" data-translate="login.studentIdPlaceholder">
+        </div>
+
+        <div class="form-group">
+          <label data-translate="register.email">Email</label>
+          <input type="email" id="email" required placeholder="your@email.com" data-translate="register.emailPlaceholder">
+        </div>
+
+        <div class="form-group">
+          <label data-translate="register.phone">Contact Number</label>
+          <input type="tel" id="contactNumber" required placeholder="e.g., +60 123-456789" data-translate="register.phonePlaceholder">
+        </div>
+
+        <div class="form-group">
+          <label data-translate="serviceDetail.tutoring.form.subject">Subject</label>
+          <select id="subject" required>
+            <option value="" data-translate="serviceDetail.tutoring.form.selectSubject">Select subject</option>
+            <option value="Mathematics" data-translate="serviceDetail.tutoring.subjects.mathematics">Mathematics</option>
+            <option value="Computer Science" data-translate="serviceDetail.tutoring.subjects.computerScience">Computer Science</option>
+            <option value="Physics" data-translate="serviceDetail.tutoring.subjects.physics">Physics</option>
+            <option value="Chemistry" data-translate="serviceDetail.tutoring.subjects.chemistry">Chemistry</option>
+            <option value="Biology" data-translate="serviceDetail.tutoring.subjects.biology">Biology</option>
+            <option value="Engineering" data-translate="serviceDetail.tutoring.subjects.engineering">Engineering</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-translate="serviceDetail.tutoring.form.lecturer">Lecturer</label>
+          <select id="lecturer" required>
+            <option value="" data-translate="serviceDetail.tutoring.form.selectLecturer">Choose a lecturer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-translate="serviceDetail.tutoring.form.topic">Topic / Area of Focus</label>
+          <textarea id="topic" rows="3" required 
+                    data-translate="serviceDetail.tutoring.form.topicPlaceholder" 
+                    placeholder="e.g., Calculus - Integration techniques"></textarea>
+        </div>
+
+        <div class="grid">
+          <div class="form-group">
+            <label data-translate="counseling.date">Date</label>
+            <input type="date" id="date" required>
+          </div>
+          <div class="form-group">
+            <label data-translate="counseling.time">Time</label>
+            <input type="time" id="time" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" data-translate="common.submit">
+          Submit Appointment
+        </button>
+      </form>
+
+      <!-- Confirmation Card -->
+      <div id="confirmationCard" class="confirmation-card" style="display:none; text-align:center;">
+        <div class="check-circle">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div class="confirmation-header">
+          <h2 data-translate="serviceDetail.tutoring.confirmation.title">Appointment Confirmed!</h2>
+        </div>
+
+        <div class="confirmation-details" id="confirmationDetails">
+          <p><strong data-translate="register.fullName">Name:</strong> <span id="confName"></span></p>
+          <p><strong data-translate="login.studentId">Student ID:</strong> <span id="confStudentId"></span></p>
+          <p><strong data-translate="serviceDetail.tutoring.form.subject">Subject:</strong> <span id="confSubject"></span></p>
+          <p><strong data-translate="serviceDetail.tutoring.form.lecturer">Lecturer:</strong> <span id="confLecturer"></span></p>
+          <p><strong data-translate="counseling.date">Date:</strong> <span id="confDate"></span></p>
+          <p><strong data-translate="counseling.time">Time:</strong> <span id="confTime"></span></p>
+          <p><strong data-translate="serviceDetail.tutoring.form.topic">Topic:</strong> <span id="confTopic"></span></p>
+        </div>
+
+        <div class="notice-box" id="noticeBox"></div>
+
+        <button class="btn-submit" id="createStudyGroupBtn" data-translate="serviceDetail.tutoring.buttons.createGroup">
+          Create Study Group
+        </button>
+        <button class="btn-submit" id="backToFormBtn" data-translate="serviceDetail.tutoring.buttons.backToForm">
+          Back to Form
+        </button>
+
+        <div id="studyGroupCard" class="confirmation-card" style="display:none; margin-top:20px; text-align:center;">
+          <div class="confirmation-header">
+            <i class="fa-solid fa-users"></i>
+            <h2 data-translate="serviceDetail.tutoring.studyGroup.title">Study Group Created!</h2>
+          </div>
+          <div class="confirmation-details">
+            <p data-translate="serviceDetail.tutoring.studyGroup.share">Share this link with other students:</p>
+            <div class="study-link">
+              <input type="text" id="studyGroupLink" readonly>
+              <button id="copyLinkBtn" data-translate="common.copy">Copy</button>
+            </div>
+            <p data-translate="serviceDetail.tutoring.studyGroup.description">Students can join your study group using this link. Group is open until session time.</p>
+            <div class="participants">
+              <span class="participant host" data-translate="serviceDetail.tutoring.studyGroup.host">👤 You (Host)</span>
+              <span class="participant waiting" data-translate="serviceDetail.tutoring.studyGroup.waiting">Waiting for students...</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="tutoring.js"></script>
+  <script src="language-manager.js"></script>
+  <script src="theme-switcher.js"></script> 
+
+  <!-- Language Switcher Fix -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+
+    function setActiveButton(lang) {
+      langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    function changeLanguage(lang) {
+      if (window.languageManager && typeof window.languageManager.setLanguage === 'function') {
+        window.languageManager.setLanguage(lang);
+        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+      }
+      localStorage.setItem('preferredLanguage', lang);
+      setActiveButton(lang);
+    }
+
+    // Initialize
+    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+    setActiveButton(savedLang);
+    if (window.languageManager && typeof window.languageManager.setLanguage === 'function') {
+      window.languageManager.setLanguage(savedLang);
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        changeLanguage(lang);
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>

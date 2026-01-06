@@ -1,0 +1,295 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: white;
+}
+
+/* Background */
+.bg-image {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  z-index: -3;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(30, 58, 138, 0.9),
+    rgba(88, 28, 135, 0.85),
+    rgba(17, 24, 39, 0.9)
+  );
+  z-index: -2;
+}
+
+/* Header Layout */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 2px;
+  margin-left: auto; /* Push to the right */
+  margin-right: 15px; /* Space between switcher and login */
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 45px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.lang-btn:active {
+  transform: translateY(0);
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Header Right - For Login & Profile */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Login Button Styling (keeping your existing style) */
+#loginBtn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+#loginBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+  
+  .language-switcher {
+    margin-right: 10px;
+  }
+  
+  .lang-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 40px;
+  }
+  
+  #loginBtn {
+    padding: 8px 20px;
+    font-size: 13px;
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-switcher {
+    margin-right: 8px;
+  }
+  
+  .lang-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+    min-width: 35px;
+  }
+  
+  #loginBtn {
+    padding: 7px 15px;
+    font-size: 12px;
+    min-width: 70px;
+  }
+}
+
+header img {
+  width: 60px;
+}
+
+header button {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  min-height: calc(100vh - 80px);
+  text-align: center;
+}
+
+#title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8vw;
+  letter-spacing: 0.1em;
+  background: linear-gradient(to right, cyan, violet, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#title span {
+  display: inline-block;
+  background: linear-gradient(to right, cyan, violet, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  background: linear-gradient(to right, cyan, violet, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#profileName {
+  display: none;
+  font-weight: bold;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#profileName:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Cards Wrapper */
+.cards-wrapper {
+  margin-top: 40px;
+  display: grid;
+  gap: 25px;
+  width: 100%;
+  max-width: 1000px;
+
+  /* Desktop: 3 columns */
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Mobile / small screens: 2 columns */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Very small screens: 1 column */
+@media (max-width: 480px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards-wrapper a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card-icon {
+  font-size: 36px;
+  color: cyan;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(255,255,255,0.15);
+}
+
+
+/* Particles */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: cyan;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: float 12s linear infinite;
+}

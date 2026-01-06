@@ -1,0 +1,121 @@
+/* Animated background circles */
+.bg-circle {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(64px);
+}
+
+.bg-circle-1 {
+  top: 5rem;
+  left: 5rem;
+  width: 18rem;
+  height: 18rem;
+  background: rgba(239, 68, 68, 0.2);
+  animation: pulse1 3s infinite ease-in-out;
+}
+
+.bg-circle-2 {
+  bottom: 5rem;
+  right: 5rem;
+  width: 24rem;
+  height: 24rem;
+  background: rgba(251, 146, 60, 0.2);
+  animation: pulse2 4s infinite ease-in-out 1s;
+}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 2px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+}
+
+/* Back Button */
+#backBtn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+}
+
+/* Language Button */
+.lang-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Click safety */
+#backBtn, .lang-btn {
+  pointer-events: auto;
+}
+
+header > *:not(#backBtn):not(.language-switcher) {
+  pointer-events: none;
+}
+
+/* Emergency cards spacing */
+#emergencyGrid a {
+  margin-bottom: 16px;
+}
+
+#emergencyGrid a:last-child {
+  margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes pulse1 {
+  0%,100% { transform: scale(1); opacity: .3; }
+  50% { transform: scale(1.2); opacity: .5; }
+}
+
+@keyframes pulse2 {
+  0%,100% { transform: scale(1); opacity: .3; }
+  50% { transform: scale(1.3); opacity: .5; }
+}
+
+.fade-up {
+  animation: fadeUp .5s ease forwards;
+}
+
+.delay-8 {
+  animation-delay: .8s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

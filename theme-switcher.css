@@ -1,0 +1,112 @@
+/* THEME COLORS */
+body.blue-purple {
+  --bg-gradient: linear-gradient(to right, #0f172a, #581c87, #0f172a);
+  --header-gradient: linear-gradient(to right, #0f172a, #581c87, #0f172a);
+  --primary: #06b6d4;
+  --secondary: #9333ea;
+}
+
+body.green-teal {
+  --bg-gradient: linear-gradient(to right, #022c22, #115e59, #022c22);
+  --header-gradient: linear-gradient(to right, #022c22, #115e59, #022c22);
+  --primary: #14b8a6;
+  --secondary: #22c55e;
+}
+
+body.orange-red {
+  --bg-gradient: linear-gradient(to right, #0f172a, #9a3412, #0f172a);
+  --header-gradient: linear-gradient(to right, #0f172a, #9a3412, #0f172a);
+  --primary: #f97316;
+  --secondary: #ef4444;
+}
+
+body.pink-violet {
+  --bg-gradient: linear-gradient(to right, #0f172a, #db2777, #0f172a);
+  --header-gradient: linear-gradient(to right, #0f172a, #db2777, #0f172a);
+  --primary: #ec4899;
+  --secondary: #c026d3;
+}
+
+/* THEME SWITCHER BUTTON */
+.theme-switcher {
+  z-index: 1005;
+  cursor: pointer;
+
+  /* Default: inside header flex/grid */
+  position: relative;
+}
+
+/* Override for pages with absolute/centered headers */
+body.absolute-header .theme-switcher {
+  position: fixed; /* top-right corner */
+  top: 24px;
+  right: 24px;
+}
+
+/* TOGGLE BUTTON */
+#toggleBtn {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* THEME MENU */
+#themeMenu {
+  position: absolute;
+  top: 100%; /* directly below button */
+  right: 0;
+  margin-top: 6px;
+  background: rgba(30, 41, 59, 0.95);
+  border-radius: 8px;
+  padding: 6px;
+  width: 180px;
+  z-index: 1006;
+}
+
+body.absolute-header #themeMenu {
+  /* Keep menu relative to fixed button */
+  position: absolute;
+}
+
+/* MENU BUTTONS */
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* HIDDEN CLASS */
+.hidden {
+  display: none;
+}
+
+/* COLOR DOTS */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.cyan { background: cyan; }
+.purple { background: purple; }
+.teal { background: teal; }
+.green { background: green; }
+.orange { background: orange; }
+.red { background: red; }
+.violet { background: violet; }
+.pink { background: pink; }

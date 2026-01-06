@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Service Detail</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="ServiceDetail.css" />
+</head>
+<body>
+
+<div class="page">
+  <header class="header">
+    <div class="header-inner">
+      <button class="back-btn" onclick="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Services
+      </button>
+
+      <div class="header-title">
+        <i id="header-icon" class="fa-solid"></i>
+        <h1 id="header-title"></h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="card">
+
+      <div class="intro">
+        <div class="icon-circle">
+          <i id="main-icon" class="fa-solid"></i>
+        </div>
+
+        <h2 id="service-title"></h2>
+        <p id="service-description"></p>
+      </div>
+
+      <div id="service-list" class="service-list"></div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>Available Hours</h3>
+          <p id="service-hours"></p>
+        </div>
+
+        <div class="info-box">
+          <h3>Contact Info</h3>
+          <p id="service-email"></p>
+          <p id="service-phone"></p>
+        </div>
+      </div>
+
+      <div class="action">
+        <button class="contact-btn" id="contactBtn">
+          Contact Service Department
+        </button>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="ServiceDetail.js"></script>
+</body>
+</html>

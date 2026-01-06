@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Profile | UMS Arclen</title>
+
+  <!-- Font Awesome (CDNJS) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+
+<div id="profileContainer" class="profile-container">
+
+  <!-- Animated background -->
+  <div class="animated-bg">
+    <div class="circle purple"></div>
+    <div class="circle cyan"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="profile-header">
+    <div class="header-content">
+      <button id="backBtn" class="btn btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+
+      <h1 class="title">Student Profile</h1>
+
+      <button id="logoutBtn" class="btn btn-logout">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Profile Content -->
+  <main class="profile-main" id="profileMain">
+    <div id="noData" class="no-data">
+      No user data found. Please log in.
+    </div>
+  </main>
+
+</div>
+
+<script src="auth.js"></script>
+<script src="profile.js"></script>
+
+</body>
+</html>

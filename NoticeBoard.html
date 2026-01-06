@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notice Board</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Permanent+Marker&family=Indie+Flower&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="NoticeBoard.css">
+</head>
+<body>
+
+  <div class="bg-image"></div>
+  <div class="bg-overlay"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <button id="backBtn" data-translate="common.back">
+        <i data-lucide="arrow-left"></i> <span data-translate="common.back">Back</span>
+      </button>
+
+      <div class="header-right">
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ms">BM</button>
+        </div>
+
+        <button id="addBtn" data-translate="noticeBoard.addNotice">
+          <i data-lucide="plus"></i><span data-translate="noticeBoard.addNotice">+ Add Notice</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Title -->
+    <div class="title-container">
+      <h1 id="title" data-translate="noticeBoard.title">NOTICE BOARD</h1>
+      <div class="title-lines"></div>
+    </div>
+
+    <!-- Blackboard -->
+    <div class="blackboard">
+      <div class="blackboard-texture"></div>
+      <div id="adsContainer"></div>
+    </div>
+  </div>
+
+  <!-- Add Notice Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose"><i class="fas fa-xmark"></i></button>
+      <h2 data-translate="noticeBoard.addNotice">Add New Notice</h2>
+      <form id="addForm">
+        <label data-translate="noticeBoard.noticeTitle">Title</label>
+        <input type="text" id="newTitle" data-translate="noticeBoard.noticeTitlePlaceholder" placeholder="Enter notice title" required>
+
+        <label data-translate="noticeBoard.noticeContent">Content</label>
+        <textarea id="newContent" rows="4" data-translate="noticeBoard.noticeContentPlaceholder" placeholder="Enter notice content" required></textarea>
+
+        <label data-translate="noticeBoard.category">Category</label>
+        <select id="categorySelect">
+          <option value="announcement" data-translate="noticeBoard.categories.announcement">Announcement</option>
+          <option value="event" data-translate="noticeBoard.categories.event">Event</option>
+          <option value="academic" data-translate="noticeBoard.categories.academic">Academic</option>
+          <option value="general" data-translate="noticeBoard.categories.general">General</option>
+        </select>
+
+        <button type="submit" data-translate="common.submit">Add Notice</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="NoticeBoard.js"></script>
+  <script src="language-manager.js"></script>
+</body>
+</html>
