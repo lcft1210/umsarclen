@@ -354,3 +354,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 }); // End of DOMContentLoaded
+
+const toggleBtn = document.getElementById('toggleBtn');
+const themeMenu = document.getElementById('themeMenu');
+
+toggleBtn.addEventListener('click', () => {
+  themeMenu.classList.toggle('show');
+});
+themeMenu.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    themeMenu.classList.remove('show'); // hides menu
+  });
+});
