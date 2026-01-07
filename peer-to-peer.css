@@ -5,10 +5,11 @@
   --text-main: #ffffff;
   --text-sub: #a5b4fc;
   --border-glass: rgba(255,255,255,0.2);
- }
+}
 
-
-/* Base styles */
+/* =========================
+   Base styles
+========================= */
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
@@ -18,21 +19,18 @@ body {
   overflow-x: hidden;
 }
 
-/* Utility classes */
 .min-h-screen {
   min-height: 100vh;
   position: relative;
-}
-
-.bg-gradient {
-  background: linear-gradient(to bottom right, #0f172a, #6b21a8, #0f172a);
 }
 
 .text-center {
   text-align: center;
 }
 
-/* Background decorations */
+/* =========================
+   Background decorations
+========================= */
 .absolute-bg {
   position: absolute;
   inset: 0;
@@ -69,21 +67,31 @@ body {
   100% { transform: scale(1.1); opacity: 1; }
 }
 
-/* Header */
+/* =========================
+   Header
+========================= */
 .header {
   position: relative;
   background: var(--header-gradient);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 20px;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 15px 20px;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Header buttons */
+/* Top row: back button left, theme right */
+.header-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Back button */
 .header-btn {
   display: flex;
   align-items: center;
@@ -97,8 +105,6 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s;
-  z-index: 1002;
-  position: relative;
 }
 
 .header-btn:hover {
@@ -106,33 +112,44 @@ body {
   transform: translateY(-1px);
 }
 
-/* Title */
-.header-title {
-  font-size: 1.8rem;
-  text-align: center;
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
+/* Theme switcher stays right in top row */
+.theme-switcher {
+  z-index: 1002;
 }
 
-/* Language Switcher */
+.theme-switcher button {
+  padding: 8px 10px;
+  font-size: 18px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Title + language container */
+.title-lang-container {
+  position: relative; /* important for absolute positioning of language buttons */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Language switcher centered above title */
 .language-switcher {
+  position: absolute;
+  top: -35px; /* adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
   z-index: 1002;
-  position: fixed;
-  top: 20px;
-  right: 70px;
 }
 
 .lang-btn {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   padding: 6px 12px;
   border-radius: 6px;
@@ -144,7 +161,7 @@ body {
 }
 
 .lang-btn:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .lang-btn.active {
@@ -152,7 +169,68 @@ body {
   border-color: #06b6d4;
 }
 
-/* Main content */
+/* Header title */
+.header-title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 0;
+  pointer-events: none;
+  color: white;
+  margin-top: 8px;
+}
+
+/* Theme menu dropdown */
+.menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  margin-top: 6px;
+  background: rgba(30, 41, 59, 0.95);
+  border-radius: 8px;
+  padding: 6px;
+  width: 180px;
+  z-index: 1006;
+}
+
+.menu.hidden {
+  display: none;
+}
+
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.cyan { background: cyan; }
+.purple { background: purple; }
+.teal { background: teal; }
+.green { background: green; }
+.orange { background: orange; }
+.red { background: red; }
+.violet { background: violet; }
+.pink { background: pink; }
+
+/* =========================
+   Main content
+========================= */
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -161,7 +239,6 @@ body {
   z-index: 1;
 }
 
-/* Intro section */
 .intro {
   margin-bottom: 3rem;
   padding: 0 1rem;
@@ -183,7 +260,6 @@ body {
   text-align: center;
 }
 
-/* Departments container */
 .departments-container {
   display: flex;
   flex-direction: column;
@@ -191,7 +267,6 @@ body {
   margin-bottom: 3rem;
 }
 
-/* Department cards */
 .department {
   background: var(--card-gradient);
   border: 1px solid var(--border-glass);
@@ -229,16 +304,10 @@ body {
 
 .department-icon {
   padding: 0.75rem;
-  background: color-mix(in srgb, var(--primary) 25%, transparent);
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.department-icon i {
-  font-size: 1.5rem;
-  color: var(--primary);
 }
 
 .department-info h3 {
@@ -263,7 +332,6 @@ body {
   color: #06b6d4;
 }
 
-/* Contacts section */
 .contacts {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -299,57 +367,12 @@ body {
   line-height: 1.4;
 }
 
-.contact-links {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.contact-links a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: all 0.3s;
-  flex: 1;
-  justify-content: center;
-  min-width: 120px;
-}
-
-.contact-links a i {
-  font-size: 1rem;
-}
-
-.contact-links a.call-btn {
-  background: #06b6d4;
-  color: white;
-}
-
-.contact-links a.call-btn:hover {
-  background: #0ea5e9;
-  transform: translateY(-1px);
-}
-
-.contact-links a.whatsapp-btn {
-  background: #22c55e;
-  color: white;
-}
-
-.contact-links a.whatsapp-btn:hover {
-  background: #16a34a;
-  transform: translateY(-1px);
-}
-
-/* Assistance box */
 .assistance-box {
   margin-top: 3rem;
   padding: 2rem;
-  background: rgba(6, 182, 212, 0.1);
+  background: rgba(6,182,212,0.1);
   border-radius: 1rem;
-  border: 1px solid rgba(6, 182, 212, 0.3);
+  border: 1px solid rgba(6,182,212,0.3);
 }
 
 .assistance-box h3 {
@@ -377,11 +400,11 @@ body {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  transition: all 0.3s;
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 1rem;
+  transition: all 0.3s;
 }
 
 .assistance-links a:hover {
@@ -390,64 +413,68 @@ body {
 }
 
 .assistance-links .call-btn {
-  background: linear-gradient(to right, #06b6d4, #0891b2);
+  background: linear-gradient(to right,#06b6d4,#0891b2);
 }
 
 .assistance-links .email-btn {
-  background: linear-gradient(to right, #9333ea, #7c3aed);
+  background: linear-gradient(to right,#9333ea,#7c3aed);
 }
 
-/* Responsive Design */
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 768px) {
   .header {
-    min-height: 90px;
-    padding: 15px;
-    flex-wrap: wrap;
+    padding: 10px 15px;
   }
-  
+
   .header-title {
     font-size: 1.5rem;
-    order: 3;
-    margin-top: 10px;
-    position: static;
-    transform: none;
-    width: 100%;
   }
-  
-  .header-btn, .language-switcher {
-    position: static;
-    transform: none;
+
+  .language-switcher {
+    gap: 6px;
   }
-  
+
+  .theme-switcher button {
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+
+  .header-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
   .intro h2 {
     font-size: 1.6rem;
   }
-  
+
   .intro p {
     font-size: 1rem;
   }
-  
+
   .department button {
     padding: 1rem 1.5rem;
   }
-  
+
   .contacts {
     grid-template-columns: 1fr;
     padding: 1rem 1.5rem;
   }
-  
+
   .contact-links {
     flex-direction: column;
   }
-  
+
   .contact-links a {
     width: 100%;
   }
-  
+
   .assistance-links {
     flex-direction: column;
   }
-  
+
   .assistance-links a {
     width: 100%;
     justify-content: center;
@@ -458,20 +485,8 @@ body {
   .header-title {
     font-size: 1.3rem;
   }
-  
-  .intro h2 {
-    font-size: 1.4rem;
-  }
-  
-  .department-info h3 {
-    font-size: 1.1rem;
-  }
-  
-  .department-info p {
-    font-size: 0.85rem;
-  }
-  
-  .pulse-circle {
-    display: none;
+
+  .language-switcher {
+    gap: 4px;
   }
 }
