@@ -12,115 +12,122 @@ body {
   font-family: 'Orbitron', sans-serif;
   background: var(--bg-gradient);
   color: white;
+  position: relative;
   overflow-x: hidden;
 }
 
-/* ===================== */
-/* HEADER BASE */
-/* ===================== */
-
-header {
-  position: relative;
-  background: var(--header-gradient);
+/* ===== LANGUAGE SWITCHER STYLES ===== */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 2px;
+  z-index: 1000; /* fix: higher */
+  position: absolute;
+  top: 20px;
+  right: 70px;
 }
 
-/* Disable clicks ONLY on title block */
+.lang-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+  min-width: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1001;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== BACK BUTTON ===== */
+#backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  z-index: 1000;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+#backBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== HEADER CONTENT ===== */
+header {
+  position: relative;
+  z-index: 10;
+}
+
+/* only disable clicks on title */
 header .text-center,
 header h1,
 header p {
   pointer-events: none;
 }
 
-/* ===================== */
-/* BACK BUTTON */
-/* ===================== */
-
-#backBtn {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  cursor: pointer;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  z-index: 3000;
+/* ===== BUTTON LAYERS ===== */
+#backBtn,
+.language-switcher,
+.theme-switcher,
+#themeMenu {
+  pointer-events: auto;
 }
 
-#backBtn:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* ===================== */
-/* LANGUAGE SWITCHER */
-/* ===================== */
-
-.language-switcher {
-  position: absolute;
-  top: 20px;
-  right: 70px;
-  display: flex;
-  gap: 2px;
-  padding: 4px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-  z-index: 3000;
-}
-
-.lang-btn {
-  padding: 6px 14px;
-  border-radius: 8px;
-  background: transparent;
-  border: none;
-  color: rgba(255,255,255,0.8);
-  cursor: pointer;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.lang-btn.active,
-.lang-btn:hover {
-  background: rgba(255,255,255,0.2);
-  color: white;
-}
-
-/* ===================== */
-/* THEME SWITCHER */
-/* ===================== */
-
+/* ===== THEME SWITCHER ===== */
 .theme-switcher {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 4000;
+  z-index: 1001;
 }
 
 #themeMenu {
-  position: fixed;
-  top: 64px;
-  right: 20px;
-  z-index: 4001;
-  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: 10px;
+  z-index: 1002;
 }
 
-/* ===================== */
-/* BACKGROUND BLOBS */
-/* ===================== */
-
+/* ===== BACKGROUND CIRCLES ===== */
 .bg-circle {
   position: absolute;
   border-radius: 9999px;
   filter: blur(80px);
-  z-index: 0;
+  z-index: 1;
 }
 
 .bg-circle-1 {
@@ -128,7 +135,8 @@ header p {
   left: 5rem;
   width: 18rem;
   height: 18rem;
-  background: rgba(168,85,247,0.15);
+  background: rgba(168, 85, 247, 0.15);
+  animation: pulse1 4s infinite ease-in-out;
 }
 
 .bg-circle-2 {
@@ -136,25 +144,60 @@ header p {
   right: 5rem;
   width: 24rem;
   height: 24rem;
-  background: rgba(34,211,238,0.15);
+  background: rgba(34, 211, 238, 0.15);
+  animation: pulse2 5s infinite ease-in-out;
 }
 
-/* ===================== */
-/* MOBILE FIXES */
-/* ===================== */
+@keyframes pulse1 {
+  0%,100% { transform: scale(1); opacity: .4; }
+  50% { transform: scale(1.2); opacity: .6; }
+}
 
+@keyframes pulse2 {
+  0%,100% { transform: scale(1); opacity: .4; }
+  50% { transform: scale(1.3); opacity: .6; }
+}
+
+.fade-up {
+  animation: fadeUp .5s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* MOBILE HEADER FIXES */
+/* ========================= */
 @media (max-width: 768px) {
-
   header {
     padding-top: 6rem;
-    padding-bottom: 4rem;
+    padding-bottom: 3.5rem;
   }
 
+  /* title container absolute -> static */
   header > div.absolute {
     position: static !important;
     transform: none !important;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-size: 1rem !important;
   }
 
   #backBtn {
@@ -171,6 +214,7 @@ header p {
   .language-switcher {
     top: 12px;
     right: 12px;
+    padding: 3px;
   }
 
   .lang-btn {
@@ -179,21 +223,21 @@ header p {
   }
 
   .theme-switcher {
-    top: 56px;
+    top: 52px;
     right: 12px;
+    position: fixed;
+    z-index: 2000;
   }
 
   #themeMenu {
-    top: 96px;
+    position: fixed;
+    top: 92px;
     right: 12px;
-  }
-
-  main {
-    padding: 1rem;
+    z-index: 2001;
   }
 }
 
-/* EXTRA SMALL */
+/* extra small devices */
 @media (max-width: 480px) {
   header h1 {
     font-size: 1.5rem !important;
