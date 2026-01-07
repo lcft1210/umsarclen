@@ -5,7 +5,7 @@
   --text-main: #ffffff;
   --text-sub: #a5b4fc;
   --border-glass: rgba(255,255,255,0.2);
- }
+}
 
 body {
   margin: 0;
@@ -19,17 +19,19 @@ body {
 /* ===== LANGUAGE SWITCHER STYLES ===== */
 .language-switcher {
   display: flex;
+  justify-content: center; /* center horizontally */
   align-items: center;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  padding: 4px;
+  padding: 4px 8px;
   gap: 2px;
-  z-index: 100;
-  position: absolute; /* ADDED */
-  top: 20px; /* ADDED - same as back button's top-6 (24px) */
-  right: 70px; /* ADDED - same spacing as left side */
+  z-index: 1000;
+  position: absolute;
+  left: 50%; /* center */
+  top: 20px;
+  transform: translateX(-50%);
 }
 
 .lang-btn {
@@ -47,7 +49,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   position: relative;
-  z-index: 101;
+  z-index: 1001;
 }
 
 .lang-btn:hover {
@@ -61,7 +63,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== FIXED BUTTON STYLES ===== */
+/* ===== BACK BUTTON ===== */
 #backBtn {
   display: flex;
   align-items: center;
@@ -75,89 +77,54 @@ body {
   transition: 0.3s;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 600;
-  z-index: 100;
-  position: absolute; /* Should already be absolute from Tailwind */
-  top: 24px; /* ADDED for consistency */
-  left: 24px; /* ADDED for consistency */
+  z-index: 1000;
+  position: absolute;
+  top: 24px;
+  left: 24px;
 }
 
 #backBtn:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Make title/content NOT block clicks */
-header .text-center {
-  pointer-events: none;
+/* ===== HEADER CONTENT ===== */
+header {
+  position: relative;
+  z-index: 10;
 }
 
+/* only disable clicks on title text */
+header .text-center,
 header h1,
 header p {
   pointer-events: none;
 }
 
-/* Responsive design - FIXED: Only override for mobile */
-@media (max-width: 768px) {
-  .language-switcher {
-    top: 15px !important;
-    right: 15px !important;
-  }
-  
-  #backBtn {
-    top: 15px !important;
-    left: 15px !important;
-  }
-  
-  .lang-btn {
-    padding: 5px 12px;
-    font-size: 12px;
-    min-width: 35px;
-  }
-  
-  header h1 {
-    font-size: 2rem !important;
-  }
-  
-  header p {
-    font-size: 1rem !important;
-  }
+/* ===== BUTTON LAYERS ===== */
+#backBtn,
+.language-switcher,
+.theme-switcher,
+#themeMenu {
+  pointer-events: auto;
 }
 
-@media (max-width: 640px) {
-  .language-switcher {
-    top: 12px !important;
-    right: 12px !important;
-  }
-  
-  #backBtn {
-    top: 12px !important;
-    left: 12px !important;
-    padding: 6px 12px;
-  }
-  
-  .lang-btn {
-    padding: 4px 10px;
-    font-size: 11px;
-    min-width: 32px;
-  }
-  
-  header h1 {
-    font-size: 1.5rem !important;
-  }
-  
-  header p {
-    font-size: 0.9rem !important;
-  }
-  
-  #backBtn span {
-    display: none;
-  }
-  
-  #backBtn i {
-    margin: 0;
-  }
+/* ===== THEME SWITCHER ===== */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
 }
 
-/* ===== YOUR EXISTING STYLES ===== */
+#themeMenu {
+  position: absolute;
+  top: 100%; /* place below color button */
+  right: 0;
+  margin-top: 8px; /* small gap */
+  z-index: 1002;
+}
+
+/* ===== BACKGROUND CIRCLES ===== */
 .bg-circle {
   position: absolute;
   border-radius: 9999px;
@@ -198,44 +165,76 @@ header p {
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================= */
+/* MOBILE HEADER FIXES */
+/* ========================= */
+@media (max-width: 768px) {
+  header {
+    padding-top: 6rem;
+    padding-bottom: 3.5rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  header > div.absolute {
+    position: static !important;
+    transform: none !important;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-size: 1rem !important;
+  }
+
+  #backBtn {
+    top: 12px;
+    left: 12px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  #backBtn span {
+    display: none;
+  }
+
+  .language-switcher {
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3px;
+  }
+
+  .lang-btn {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .theme-switcher {
+    top: 52px;
+    right: 12px;
+    position: fixed;
+    z-index: 2000;
+  }
+
+  #themeMenu {
+    position: fixed;
+    top: 92px;
+    right: 12px;
+    z-index: 2001;
   }
 }
 
-/* ===== CRITICAL FIX ===== */
-/* Make buttons always clickable */
-header {
-  position: relative;
-}
-
-/* Ensure buttons are on top layer */
-#backBtn,
-.language-switcher {
-  z-index: 1000;
-}
-
-/* Make sure nothing covers them */
-header > *:not(#backBtn):not(.language-switcher):not(.theme-switcher):not(#themeMenu) {
-  pointer-events: none;
-}
-
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001; /* HIGHER than header */
-}
-
-#themeMenu {
-  position: absolute;
-  top: 50%;              
-  right: 0;
-  margin-top: 10px;
-  z-index: 1002;
+/* extra small devices */
+@media (max-width: 480px) {
+  header h1 { font-size: 1.5rem !important; }
+  header p { font-size: 0.9rem !important; }
 }
