@@ -5,164 +5,122 @@
   --text-main: #ffffff;
   --text-sub: #a5b4fc;
   --border-glass: rgba(255,255,255,0.2);
- }
+}
 
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
   background: var(--bg-gradient);
   color: white;
-  position: relative;
   overflow-x: hidden;
 }
 
-/* ===== LANGUAGE SWITCHER STYLES ===== */
-.language-switcher {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 4px;
-  gap: 2px;
-  z-index: 100;
-  position: absolute; /* ADDED */
-  top: 20px; /* ADDED - same as back button's top-6 (24px) */
-  right: 70px; /* ADDED - same spacing as left side */
-}
+/* ===================== */
+/* HEADER BASE */
+/* ===================== */
 
-.lang-btn {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 13px;
-  font-family: 'Rajdhani', sans-serif;
-  transition: all 0.3s ease;
-  min-width: 40px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+header {
   position: relative;
-  z-index: 101;
+  background: var(--header-gradient);
 }
 
-.lang-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.lang-btn.active {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== FIXED BUTTON STYLES ===== */
-#backBtn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  z-index: 100;
-  position: absolute; /* Should already be absolute from Tailwind */
-  top: 24px; /* ADDED for consistency */
-  left: 24px; /* ADDED for consistency */
-}
-
-#backBtn:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Make title/content NOT block clicks */
-header .text-center {
-  pointer-events: none;
-}
-
+/* Disable clicks ONLY on title block */
+header .text-center,
 header h1,
 header p {
   pointer-events: none;
 }
 
-/* Responsive design - FIXED: Only override for mobile */
-@media (max-width: 768px) {
-  .language-switcher {
-    top: 15px !important;
-    right: 15px !important;
-  }
-  
-  #backBtn {
-    top: 15px !important;
-    left: 15px !important;
-  }
-  
-  .lang-btn {
-    padding: 5px 12px;
-    font-size: 12px;
-    min-width: 35px;
-  }
-  
-  header h1 {
-    font-size: 2rem !important;
-  }
-  
-  header p {
-    font-size: 1rem !important;
-  }
+/* ===================== */
+/* BACK BUTTON */
+/* ===================== */
+
+#backBtn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  z-index: 3000;
 }
 
-@media (max-width: 640px) {
-  .language-switcher {
-    top: 12px !important;
-    right: 12px !important;
-  }
-  
-  #backBtn {
-    top: 12px !important;
-    left: 12px !important;
-    padding: 6px 12px;
-  }
-  
-  .lang-btn {
-    padding: 4px 10px;
-    font-size: 11px;
-    min-width: 32px;
-  }
-  
-  header h1 {
-    font-size: 1.5rem !important;
-  }
-  
-  header p {
-    font-size: 0.9rem !important;
-  }
-  
-  #backBtn span {
-    display: none;
-  }
-  
-  #backBtn i {
-    margin: 0;
-  }
+#backBtn:hover {
+  background: rgba(255,255,255,0.2);
 }
 
-/* ===== YOUR EXISTING STYLES ===== */
+/* ===================== */
+/* LANGUAGE SWITCHER */
+/* ===================== */
+
+.language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  display: flex;
+  gap: 2px;
+  padding: 4px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  z-index: 3000;
+}
+
+.lang-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+/* ===================== */
+/* THEME SWITCHER */
+/* ===================== */
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 4000;
+}
+
+#themeMenu {
+  position: fixed;
+  top: 64px;
+  right: 20px;
+  z-index: 4001;
+  pointer-events: auto;
+}
+
+/* ===================== */
+/* BACKGROUND BLOBS */
+/* ===================== */
+
 .bg-circle {
   position: absolute;
   border-radius: 9999px;
   filter: blur(80px);
-  z-index: 1;
+  z-index: 0;
 }
 
 .bg-circle-1 {
@@ -170,8 +128,7 @@ header p {
   left: 5rem;
   width: 18rem;
   height: 18rem;
-  background: rgba(168, 85, 247, 0.15);
-  animation: pulse1 4s infinite ease-in-out;
+  background: rgba(168,85,247,0.15);
 }
 
 .bg-circle-2 {
@@ -179,159 +136,65 @@ header p {
   right: 5rem;
   width: 24rem;
   height: 24rem;
-  background: rgba(34, 211, 238, 0.15);
-  animation: pulse2 5s infinite ease-in-out;
+  background: rgba(34,211,238,0.15);
 }
 
-@keyframes pulse1 {
-  0%,100% { transform: scale(1); opacity: .4; }
-  50% { transform: scale(1.2); opacity: .6; }
-}
-
-@keyframes pulse2 {
-  0%,100% { transform: scale(1); opacity: .4; }
-  50% { transform: scale(1.3); opacity: .6; }
-}
-
-.fade-up {
-  animation: fadeUp .5s ease forwards;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== CRITICAL FIX ===== */
-/* Make buttons always clickable */
-header {
-  position: relative;
-}
-
-/* Ensure buttons are on top layer */
-#backBtn,
-.language-switcher {
-  z-index: 1000;
-}
-
-/* Make sure nothing covers them */
-header > *:not(#backBtn):not(.language-switcher):not(.theme-switcher):not(#themeMenu) {
-  pointer-events: none;
-}
-
-.theme-switcher {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001; /* HIGHER than header */
-}
-
-#themeMenu {
-  position: absolute;
-  top: 50%;              
-  right: 0;
-  margin-top: 10px;
-  z-index: 1002;
-
-}
-
-/* ========================= */
-/* 📱 MOBILE FRIENDLY FIXES */
-/* ========================= */
+/* ===================== */
+/* MOBILE FIXES */
+/* ===================== */
 
 @media (max-width: 768px) {
 
-  /* ---------- HEADER ---------- */
   header {
-    padding-top: 6rem;   /* space for buttons */
+    padding-top: 6rem;
     padding-bottom: 4rem;
   }
 
-  /* Center title block naturally */
   header > div.absolute {
     position: static !important;
     transform: none !important;
     margin-top: 2.5rem;
+    text-align: center;
   }
 
-  header h1 {
-    font-size: 1.9rem !important;
-    line-height: 1.3;
-    margin-bottom: 0.75rem;
-  }
-
-  header p {
-    font-size: 1rem !important;
-    line-height: 1.5;
-  }
-
-  /* ---------- BUTTONS ---------- */
   #backBtn {
-    top: 12px !important;
-    left: 12px !important;
+    top: 12px;
+    left: 12px;
     padding: 6px 10px;
     font-size: 0.8rem;
   }
 
+  #backBtn span {
+    display: none;
+  }
+
   .language-switcher {
-    top: 12px !important;
-    right: 12px !important;
-    padding: 3px;
+    top: 12px;
+    right: 12px;
   }
 
   .lang-btn {
     font-size: 11px;
     padding: 4px 8px;
-    min-width: 32px;
   }
 
   .theme-switcher {
-    top: 56px !important;
-    right: 12px !important;
+    top: 56px;
+    right: 12px;
   }
 
-  /* ---------- CONTENT ---------- */
+  #themeMenu {
+    top: 96px;
+    right: 12px;
+  }
+
   main {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    padding-top: 2rem;
-  }
-
-  /* ---------- ORGANISATION CARDS ---------- */
-  #organisationContainer {
-    gap: 1.25rem;
-  }
-
-  .fade-up {
-    animation: none; /* smoother on low-end phones */
-  }
-
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .grid > div {
-    padding: 0.9rem;
-  }
-
-  h2 {
-    font-size: 1.2rem !important;
-  }
-
-  h3 {
-    font-size: 0.95rem;
+    padding: 1rem;
   }
 }
 
-/* EXTRA SMALL PHONES */
+/* EXTRA SMALL */
 @media (max-width: 480px) {
-
   header h1 {
     font-size: 1.5rem !important;
   }
@@ -339,34 +202,4 @@ header > *:not(#backBtn):not(.language-switcher):not(.theme-switcher):not(#theme
   header p {
     font-size: 0.9rem !important;
   }
-
-  #backBtn span {
-    display: none;
-  }
 }
-
-/* =============================== */
-/* ✅ FIX: THEME MENU CLICKABLE ON MOBILE */
-/* =============================== */
-
-/* Always allow interaction */
-#themeMenu,
-#themeMenu * {
-  pointer-events: auto !important;
-}
-
-/* Mobile-specific fix */
-@media (max-width: 768px) {
-  #themeMenu {
-    position: fixed;        /* escape header stacking issues */
-    top: 96px;              /* below theme button */
-    right: 12px;
-    z-index: 2000;          /* higher than everything */
-  }
-
-  .theme-switcher {
-    z-index: 2001;          /* button above menu */
-  }
-}
-
-
