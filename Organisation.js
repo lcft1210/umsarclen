@@ -355,14 +355,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }); // End of DOMContentLoaded
 
-const toggleBtn = document.getElementById('toggleBtn');
-const themeMenu = document.getElementById('themeMenu');
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggleBtn');
+  const themeMenu = document.getElementById('themeMenu');
 
-toggleBtn.addEventListener('click', () => {
-  themeMenu.classList.toggle('show');
+  if (toggleBtn && themeMenu) {
+    // Toggle menu when 🎨 button clicked
+    toggleBtn.addEventListener('click', () => {
+      themeMenu.classList.toggle('show');
+    });
+
+    // Hide menu after selecting a theme
+    themeMenu.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        themeMenu.classList.remove('show');
+      });
+    });
+  }
 });
-themeMenu.querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    themeMenu.classList.remove('show'); // hides menu
-  });
-});
+
