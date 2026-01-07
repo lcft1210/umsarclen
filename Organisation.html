@@ -26,35 +26,33 @@
 <body class="min-h-screen text-white absolute-header">
 
   <!-- Animated Background -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
     <div class="bg-circle bg-circle-1"></div>
     <div class="bg-circle bg-circle-2"></div>
   </div>
 
   <!-- Header -->
-  <header class="relative z-10 backdrop-blur-md border-b border-white/10 px-8 py-16"
+<header class="relative z-10 backdrop-blur-md border-b border-white/10 px-8 py-16"
         style="background: var(--header-gradient);">
 
-    <!-- Back Button - Top Left -->
-    <button id="backBtn"
-      class="absolute top-6 left-6 flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg transition-all"
-      style="z-index: 1000;">
-      <i class="fa-solid fa-arrow-left"></i>
-      <span data-translate="common.back">Back</span>
-    </button>
+  <!-- Back Button - Top Left -->
+  <button id="backBtn"
+    class="absolute top-6 left-6 flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/30 rounded-lg transition-all"
+    style="z-index: 1000;">
+    <i class="fa-solid fa-arrow-left"></i>
+    <span data-translate="common.back">Back</span>
+  </button>
 
-    <!-- Language Switcher -->
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="ms">BM</button>
-      </div>
- 
-    <!-- Color Theme Switcher -->
-      <div class="theme-switcher">
-         <button id="toggleBtn" >🎨</button>
-      </div>
-    
-     <div id="themeMenu" class="menu hidden">
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ms">BM</button>
+  </div>
+
+  <!-- Theme Switcher Wrapper -->
+  <div class="theme-wrapper">
+    <button id="toggleBtn">🎨</button>
+    <div id="themeMenu" class="menu hidden">
       <button data-theme="blue-purple">
         <span class="dot cyan"></span>
         <span class="dot purple"></span>
@@ -79,6 +77,7 @@
         Pink Violet
       </button>
     </div>
+  </div>
 
         <!-- Title - Centered -->
     <div class="absolute title-container left-1/2 top-1/2 transform -translate-x-1/2 w-full px-4 text-center">
