@@ -1,115 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-translate="servicePage.peerToPeer">Peer-to-Peer Department Contact</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-translate="servicePage.peerToPeer">
+      Peer-to-Peer Department Contact
+    </title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="peer-to-peer.css">
-  <link rel="stylesheet" href="theme-switcher.css">
-  
-  <!-- Critical styles -->
-  <style>
-    /* Ensure proper z-indexing */
-    .header { position: relative !important; min-height: 100px !important; }
-    .header-btn, .language-switcher { z-index: 1002; }
-    .header-title { pointer-events: none; }
-  </style>
-</head>
-<body class="min-h-screen text-white absolute-header">
-  <div class="min-h-screen">
-    <!-- Background decorations -->
-    <div class="absolute-bg">
-      <div class="pulse-circle top-left"></div>
-      <div class="pulse-circle bottom-right"></div>
-    </div>
-
-    <!-- HEADER -->
-    <header class="header">
-      <!-- Back Button -->
-      <button id="back-btn" class="header-btn">
-        <i class="fa-solid fa-arrow-left"></i>
-        <span data-translate="common.back">Back</span>
-      </button>
-      
-      <!-- Title -->
-      <h1 class="header-title" data-translate="servicePage.peerToPeer">
-        Peer-to-Peer Department Contact
-      </h1>
-      
-      <!-- Language Switcher -->
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="ms">BM</button>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="peer-to-peer.css" />
+    <link rel="stylesheet" href="theme-switcher.css" />
+  </head>
+  <body class="min-h-screen text-white absolute-header">
+    <div class="min-h-screen">
+      <!-- Background decorations -->
+      <div class="absolute-bg">
+        <div class="pulse-circle top-left"></div>
+        <div class="pulse-circle bottom-right"></div>
       </div>
 
-      <!-- Color Theme Switcher -->
-      <div class="theme-switcher">
-         <button id="toggleBtn" >🎨</button>
-      </div>
-    
-     <div id="themeMenu" class="menu hidden">
-      <button data-theme="blue-purple">
-        <span class="dot cyan"></span>
-        <span class="dot purple"></span>
-        Blue Purple
-      </button>
+      <header class="header">
+        <div class="header-top">
+          <!-- Back Button -->
+          <button id="back-btn" class="header-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span data-translate="common.back">Back</span>
+          </button>
 
-      <button data-theme="green-teal">
-        <span class="dot teal"></span>
-        <span class="dot green"></span>
-        Green Teal
-      </button>
-
-      <button data-theme="orange-red">
-        <span class="dot orange"></span>
-        <span class="dot red"></span>
-        Orange Red
-      </button>
-
-      <button data-theme="pink-violet">
-        <span class="dot violet"></span>
-        <span class="dot pink"></span>
-        Pink Violet
-      </button>
-    </div>
-
-    </header>
-
-    <!-- Main content -->
-    <main class="main-content">
-      <div class="intro text-center">
-        <h2 data-translate="peerToPeer.intro.title">What is Peer-to-Peer Department Contact?</h2>
-        <p data-translate="peerToPeer.intro.description">
-          A direct pathway to connect with student representatives, faculty heads, academic advisors, and administrative staff. Get the support and guidance you need from the right people.
-        </p>
-      </div>
-
-      <div id="departments" class="departments-container"></div>
-
-      <div class="assistance-box text-center">
-        <h3 data-translate="peerToPeer.assistance.title">Need General Assistance?</h3>
-        <p data-translate="peerToPeer.assistance.description">Contact the Student Affairs Office for general inquiries</p>
-        <div class="assistance-links">
-          <a href="tel:+60883320000" class="call-btn" data-translate="peerToPeer.assistance.call">📞 +60 88-320 000</a>
-          <a href="mailto:studentaffairs@ums.edu.my" class="email-btn" data-translate="peerToPeer.assistance.email">✉️ Email Us</a>
+          <!-- Theme Switcher Top-Right -->
+          <div class="theme-switcher">
+            <button id="toggleBtn">🎨</button>
+          </div>
         </div>
-      </div>
-    </main>
-  </div>
 
-  <!-- Scripts -->
-  <script src="language-manager.js"></script>
-  <script src="peer-to-peer.js"></script>
-  <script src="theme-switcher.js"></script>
-</body>
+        <!-- Title + Language Container -->
+        <div class="title-lang-container">
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ms">BM</button>
+          </div>
+
+          <!-- Header Title -->
+          <h1 class="header-title" data-translate="servicePage.peerToPeer">
+            Peer-to-Peer Department Contact
+          </h1>
+        </div>
+
+        <!-- Theme Menu -->
+        <div id="themeMenu" class="menu hidden">
+          <button data-theme="blue-purple">
+            <span class="dot cyan"></span><span class="dot purple"></span>Blue
+            Purple
+          </button>
+          <button data-theme="green-teal">
+            <span class="dot teal"></span><span class="dot green"></span>Green
+            Teal
+          </button>
+          <button data-theme="orange-red">
+            <span class="dot orange"></span><span class="dot red"></span>Orange
+            Red
+          </button>
+          <button data-theme="pink-violet">
+            <span class="dot violet"></span><span class="dot pink"></span>Pink
+            Violet
+          </button>
+        </div>
+      </header>
+
+      <!-- Main content -->
+      <main class="main-content">
+        <div class="intro text-center">
+          <h2 data-translate="peerToPeer.intro.title">
+            What is Peer-to-Peer Department Contact?
+          </h2>
+          <p data-translate="peerToPeer.intro.description">
+            A direct pathway to connect with student representatives, faculty
+            heads, academic advisors, and administrative staff. Get the support
+            and guidance you need from the right people.
+          </p>
+        </div>
+
+        <div id="departments" class="departments-container"></div>
+
+        <div class="assistance-box text-center">
+          <h3 data-translate="peerToPeer.assistance.title">
+            Need General Assistance?
+          </h3>
+          <p data-translate="peerToPeer.assistance.description">
+            Contact the Student Affairs Office for general inquiries
+          </p>
+          <div class="assistance-links">
+            <a
+              href="tel:+60883320000"
+              class="call-btn"
+              data-translate="peerToPeer.assistance.call"
+              >📞 +60 88-320 000</a
+            >
+            <a
+              href="mailto:studentaffairs@ums.edu.my"
+              class="email-btn"
+              data-translate="peerToPeer.assistance.email"
+              >✉️ Email Us</a
+            >
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="language-manager.js"></script>
+    <script src="peer-to-peer.js"></script>
+    <script src="theme-switcher.js"></script>
+  </body>
 </html>
