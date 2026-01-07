@@ -17,7 +17,6 @@ body {
 }
 
 /* ===== LANGUAGE SWITCHER ===== */
-/* Desktop / Laptop */
 .language-switcher {
   display: flex;
   justify-content: center;
@@ -28,11 +27,11 @@ body {
   border-radius: 12px;
   padding: 4px 8px;
   gap: 2px;
+
   position: absolute;
-  top: 20px;
-  right: 100px;  /* desktop position */
-  left: auto;
-  transform: none;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12%; /* sits above the title */
   z-index: 1010;
 }
 
@@ -95,7 +94,7 @@ header {
   z-index: 10;
 }
 
-/* Disable clicks only on title */
+/* only disable clicks on title text */
 header .text-center,
 header h1,
 header p {
@@ -120,7 +119,7 @@ header p {
 
 #themeMenu {
   position: absolute;
-  top: 100%; /* below the toggle button */
+  top: 100%; /* below toggle button */
   right: 0;
   margin-top: 6px;
   z-index: 1021;
@@ -178,9 +177,7 @@ header p {
 /* Tablet: center language button */
 @media (max-width: 1024px) {
   .language-switcher {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
+    top: 10%; /* slightly higher above title */
   }
 }
 
@@ -218,7 +215,7 @@ header p {
   #backBtn span { display: none; }
 
   .language-switcher {
-    top: 12px;
+    top: 8%; /* higher up */
     padding: 3px;
   }
 
@@ -246,5 +243,5 @@ header p {
 @media (max-width: 480px) {
   header h1 { font-size: 1.5rem !important; }
   header p { font-size: 0.9rem !important; }
-  .language-switcher { top: 10px; }
+  .language-switcher { top: 6%; }
 }
