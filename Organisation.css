@@ -344,3 +344,29 @@ header > *:not(#backBtn):not(.language-switcher):not(.theme-switcher):not(#theme
     display: none;
   }
 }
+
+/* =============================== */
+/* ✅ FIX: THEME MENU CLICKABLE ON MOBILE */
+/* =============================== */
+
+/* Always allow interaction */
+#themeMenu,
+#themeMenu * {
+  pointer-events: auto !important;
+}
+
+/* Mobile-specific fix */
+@media (max-width: 768px) {
+  #themeMenu {
+    position: fixed;        /* escape header stacking issues */
+    top: 96px;              /* below theme button */
+    right: 12px;
+    z-index: 2000;          /* higher than everything */
+  }
+
+  .theme-switcher {
+    z-index: 2001;          /* button above menu */
+  }
+}
+
+
