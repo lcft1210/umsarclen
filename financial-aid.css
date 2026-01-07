@@ -16,17 +16,19 @@ body {
   background: var(--header-gradient, linear-gradient(to right, rgba(88, 28, 135, 0.5), rgba(14, 165, 233, 0.4)));
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
 }
 
 .header-inner {
   max-width: 1200px;
   margin: auto;
   padding: 20px 32px;
-
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 12px;
+  position: relative;
 }
 
 /* Back Button */
@@ -35,7 +37,6 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-
   background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 10px;
@@ -44,6 +45,7 @@ body {
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
+  z-index: 1001;
 }
 
 .back-btn:hover {
@@ -58,25 +60,27 @@ body {
   font-size: 2rem;
   text-align: center;
   pointer-events: none;
+  z-index: 900;
 }
 
 /* Language Switcher */
 .language-switcher {
-  justify-self: end;
   display: flex;
   align-items: center;
-  gap: 2px;
-
+  gap: 4px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  padding: 4px;
+  padding: 4px 6px;
+  justify-self: end;
+  z-index: 1002;
+  margin-top: 8px;
 }
 
 /* Language Buttons */
 .lang-btn {
-  padding: 6px 14px;
+  padding: 6px 12px;
   border: none;
   border-radius: 8px;
   background: transparent;
@@ -100,6 +104,8 @@ body {
 /* Theme Switcher */
 .theme-switcher {
   position: relative;
+  justify-self: end;
+  z-index: 1003;
 }
 
 #toggleBtn {
@@ -122,7 +128,7 @@ body {
   border-radius: 8px;
   padding: 6px;
   width: 180px;
-  z-index: 1006;
+  z-index: 1004;
 }
 
 .menu.hidden {
@@ -327,4 +333,46 @@ body.orange-red {
 body.pink-violet {
   --bg-gradient: linear-gradient(to bottom right, #020617, #db2777, #020617);
   --header-gradient: linear-gradient(to right, rgba(2, 6, 23, 0.5), rgba(219, 39, 119, 0.4));
+}
+
+/* =========================
+   Responsive Adjustments
+========================= */
+@media (max-width: 768px) {
+  .header-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .header-title {
+    margin-top: 8px;
+    font-size: 1.8rem;
+  }
+
+  .language-switcher {
+    justify-self: center;
+    margin-top: 8px;
+  }
+
+  .theme-switcher {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.5rem;
+  }
+
+  .back-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .lang-btn {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
 }
