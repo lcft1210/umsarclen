@@ -238,4 +238,109 @@ header > *:not(#backBtn):not(.language-switcher):not(.theme-switcher):not(#theme
   right: 0;
   margin-top: 10px;
   z-index: 1002;
+
+}
+
+/* ========================= */
+/* 📱 MOBILE FRIENDLY FIXES */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- HEADER ---------- */
+  header {
+    padding-top: 6rem;   /* space for buttons */
+    padding-bottom: 4rem;
+  }
+
+  /* Center title block naturally */
+  header > div.absolute {
+    position: static !important;
+    transform: none !important;
+    margin-top: 2.5rem;
+  }
+
+  header h1 {
+    font-size: 1.9rem !important;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  header p {
+    font-size: 1rem !important;
+    line-height: 1.5;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  #backBtn {
+    top: 12px !important;
+    left: 12px !important;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .language-switcher {
+    top: 12px !important;
+    right: 12px !important;
+    padding: 3px;
+  }
+
+  .lang-btn {
+    font-size: 11px;
+    padding: 4px 8px;
+    min-width: 32px;
+  }
+
+  .theme-switcher {
+    top: 56px !important;
+    right: 12px !important;
+  }
+
+  /* ---------- CONTENT ---------- */
+  main {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-top: 2rem;
+  }
+
+  /* ---------- ORGANISATION CARDS ---------- */
+  #organisationContainer {
+    gap: 1.25rem;
+  }
+
+  .fade-up {
+    animation: none; /* smoother on low-end phones */
+  }
+
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid > div {
+    padding: 0.9rem;
+  }
+
+  h2 {
+    font-size: 1.2rem !important;
+  }
+
+  h3 {
+    font-size: 0.95rem;
+  }
+}
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 480px) {
+
+  header h1 {
+    font-size: 1.5rem !important;
+  }
+
+  header p {
+    font-size: 0.9rem !important;
+  }
+
+  #backBtn span {
+    display: none;
+  }
 }
