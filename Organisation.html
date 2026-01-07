@@ -49,30 +49,51 @@
         <button class="lang-btn" data-lang="ms">BM</button>
       </div>
  
-        <!-- Color Theme Switcher -->
-    <div class="theme-switcher">
-       <button id="toggleBtn">🎨</button>
-       <div id="themeMenu" class="menu hidden">
-          <button data-theme="blue-purple"><span class="dot cyan"></span><span class="dot purple"></span>Blue Purple</button>
-          <button data-theme="green-teal"><span class="dot teal"></span><span class="dot green"></span>Green Teal</button>
-          <button data-theme="orange-red"><span class="dot orange"></span><span class="dot red"></span>Orange Red</button>
-          <button data-theme="pink-violet"><span class="dot violet"></span><span class="dot pink"></span>Pink Violet</button>
-       </div>
+    <!-- Color Theme Switcher -->
+      <div class="theme-switcher">
+         <button id="toggleBtn" >🎨</button>
+      </div>
+    
+     <div id="themeMenu" class="menu hidden">
+      <button data-theme="blue-purple">
+        <span class="dot cyan"></span>
+        <span class="dot purple"></span>
+        Blue Purple
+      </button>
+
+      <button data-theme="green-teal">
+        <span class="dot teal"></span>
+        <span class="dot green"></span>
+        Green Teal
+      </button>
+
+      <button data-theme="orange-red">
+        <span class="dot orange"></span>
+        <span class="dot red"></span>
+        Orange Red
+      </button>
+
+      <button data-theme="pink-violet">
+        <span class="dot violet"></span>
+        <span class="dot pink"></span>
+        Pink Violet
+      </button>
     </div>
 
-    <!-- Title - Centered -->
-    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 text-center">
+        <!-- Title - Centered -->
+    <div class="absolute title-container left-1/2 top-1/2 transform -translate-x-1/2 w-full px-4 text-center">
       <h1 class="text-4xl md:text-5xl lg:text-6xl tracking-wider mb-4"
           style="font-family: Orbitron, sans-serif;"
           data-translate="organisation.title">
         Organisation Directory
       </h1>
       <p class="text-xl md:text-2xl text-white/90"
-         style="font-family: 'Exo 2', sans-serif;"
-         data-translate="organisation.description">
+        style="font-family: 'Exo 2', sans-serif;"
+        data-translate="organisation.description">
         University organisations, councils, clubs and societies.
       </p>
-    </div>
+</div>
+
   </header>
 
   <!-- Content -->
@@ -88,4 +109,3 @@
   <script src="theme-switcher.js"></script>
 </body>
 </html>
-
