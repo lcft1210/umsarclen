@@ -8,10 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome CDN -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <link rel="stylesheet" href="financial-aid.css">
   <link rel="stylesheet" href="theme-switcher.css">
@@ -23,48 +20,34 @@
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <button id="back-btn" class="back-btn">
-        <i class="fa-solid fa-arrow-left"></i>
-        <span data-translate="common.back">Back</span>
-      </button>
 
+      <!-- WRAPPER FOR TOP ROW (BACK + LANGUAGE + THEME) -->
+      <div class="header-top">
+        <button id="back-btn" class="back-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span data-translate="common.back">Back</span>
+        </button>
+
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="ms">BM</button>
+        </div>
+
+        <div class="theme-switcher">
+          <button id="toggleBtn" >🎨</button>
+          <div id="themeMenu" class="menu hidden">
+            <button data-theme="blue-purple"><span class="dot cyan"></span><span class="dot purple"></span>Blue Purple</button>
+            <button data-theme="green-teal"><span class="dot teal"></span><span class="dot green"></span>Green Teal</button>
+            <button data-theme="orange-red"><span class="dot orange"></span><span class="dot red"></span>Orange Red</button>
+            <button data-theme="pink-violet"><span class="dot violet"></span><span class="dot pink"></span>Pink Violet</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Title Centered -->
       <h1 class="header-title" data-translate="serviceDetail.financialAid.title">Financial Aid</h1>
 
-      <!-- Language Switcher -->
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="ms">BM</button>
-      </div>
-
-      <div class="theme-switcher">
-         <button id="toggleBtn" >🎨</button>
-      </div>
-    
-      <div id="themeMenu" class="menu hidden">
-        <button data-theme="blue-purple">
-          <span class="dot cyan"></span>
-          <span class="dot purple"></span>
-          Blue Purple
-        </button>
-
-        <button data-theme="green-teal">
-          <span class="dot teal"></span>
-          <span class="dot green"></span>
-          Green Teal
-        </button>
-
-        <button data-theme="orange-red">
-          <span class="dot orange"></span>
-          <span class="dot red"></span>
-          Orange Red
-        </button>
-
-        <button data-theme="pink-violet">
-          <span class="dot violet"></span>
-          <span class="dot pink"></span>
-          Pink Violet
-        </button>
-      </div>
     </div>
   </header>
 
