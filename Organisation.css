@@ -19,7 +19,7 @@ body {
 /* ===== LANGUAGE SWITCHER STYLES ===== */
 .language-switcher {
   display: flex;
-  justify-content: center; /* center horizontally */
+  justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
@@ -27,11 +27,11 @@ body {
   border-radius: 12px;
   padding: 4px 8px;
   gap: 2px;
-  z-index: 1000;
   position: absolute;
-  left: 50%; /* center */
+  left: 50%;
   top: 20px;
   transform: translateX(-50%);
+  z-index: 1010;
 }
 
 .lang-btn {
@@ -110,18 +110,18 @@ header p {
 
 /* ===== THEME SWITCHER ===== */
 .theme-switcher {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 1001;
+  z-index: 1020;
 }
 
 #themeMenu {
   position: absolute;
-  top: 100%; /* place below color button */
+  top: 100%; /* below the toggle button */
   right: 0;
-  margin-top: 8px; /* small gap */
-  z-index: 1002;
+  margin-top: 6px;
+  z-index: 1021;
 }
 
 /* ===== BACKGROUND CIRCLES ===== */
@@ -237,4 +237,20 @@ header p {
 @media (max-width: 480px) {
   header h1 { font-size: 1.5rem !important; }
   header p { font-size: 0.9rem !important; }
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .language-switcher {
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .theme-switcher {
+    top: 12px;
+    right: 12px;
+  }
+  #themeMenu {
+    top: 100%;
+    right: 0;
+  }
 }
