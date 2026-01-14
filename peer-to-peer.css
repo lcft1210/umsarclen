@@ -490,3 +490,81 @@ body {
     gap: 4px;
   }
 }
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+
+  justify-content: flex-start; /* default for mobile */
+}
+
+/* Call button style */
+.call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #2563eb; /* blue */
+  color: #ffffff;
+
+  padding: 8px 14px;
+  border-radius: 6px;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Hover */
+.call-btn:hover {
+  background-color: #1d4ed8; /* darker blue */
+  transform: translateY(-1px);
+}
+
+/* Active */
+.call-btn:active {
+  transform: translateY(0);
+}
+
+
+/* WhatsApp button style */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #25D366;
+  color: #ffffff;
+
+  padding: 8px 14px;
+  border-radius: 6px;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.whatsapp-btn i {
+  font-size: 1.1rem;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-1px);
+}
+
+.whatsapp-btn:active {
+  transform: translateY(0);
+}
+
+@media (min-width: 769px) {
+  .contact-links {
+    justify-content: center;   /* 👈 centers buttons on laptop */
+  }
+}
